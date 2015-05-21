@@ -1,0 +1,21 @@
+<%= form_for @item do |f| %>
+  <p>
+    <%= f.label :product_id, 'Product Id' %>
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

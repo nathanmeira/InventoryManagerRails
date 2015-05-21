@@ -1,0 +1,7 @@
+<% if @items.all.count > 0 %>
+  <% @items.each do |item| %>
+    <p><%= item.product_id %> : <%= item.name %></p>
+  <% end %>
+<% else %>
+  <h2>No products exist yet!</h2>
+<% end %>
