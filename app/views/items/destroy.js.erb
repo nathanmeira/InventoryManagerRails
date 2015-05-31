@@ -1,0 +1,10 @@
+<% if @item.errors.full_messages.length > 0 %>
+  $('.notices').children().remove();
+  <% @item.errors.full_messages.each do |error_msg| %>
+    $('.notices').append('<div class="notice alert alert-danger"><%= error_msg %></div>');
+  <% end %>
+<% else %>
+  $('.notices').children().remove();
+  $('.notices').append('<div class="notice alert alert-success">Successfully deleted the product</div>');
+  $('#items #item-<%= @item.product_id %>').remove();
+<% end %>

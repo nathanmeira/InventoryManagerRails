@@ -1,0 +1,12 @@
+<div id="item-<%= item.product_id %>" class="well well-sm">
+<p>
+  <%= item.product_id %> : <%= link_to item.name, item_path(item) %>
+</p>
+<p>
+  <%= link_to 'Delete', item_path(item),
+                        remote: true,
+                        method: :delete,
+                        data: {confirm: 'are you sure?'},
+                        class: "btn btn-danger" %>
+</p>
+</div>

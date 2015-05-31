@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <%= link_to "Inventory Manager", items_path, class: "navbar-brand" %>
+    </div>
+  </header>
+  <div class="notices container">
+    <% flash.each do |name,msg| %>
+      <%= content_tag :div, msg, class: name+" alert alert-success" %>
+    <% end %>
+    <% @item.errors.full_messages.each do |err_msg| %>
+      <%= content_tag :div, err_msg, class: "alert alert-danger"%>
+    <% end %>
+  </div>
 
-<%= yield %>
+  <div class="container">
+  <%= yield %>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <p><i class="glyphicon glyphicon-copyright-mark"></i> Brendan Henderson</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

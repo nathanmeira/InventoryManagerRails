@@ -1,0 +1,14 @@
+<% if @item.errors.full_messages.length > 0 %>
+  $('.notices').children().remove();
+  <% @item.errors.full_messages.each do |error_msg| %>
+    $('.notices').append('<div class="notice alert alert-danger"><%= error_msg %></div>');
+  <% end %>
+<% else %>  
+  $('#items').append("<%= escape_javascript(render @item) %>");
+  var inputs = $('#new_item').children('p').children('input');
+  for (var i=0;i < inputs.length-1;++i) {
+    $(inputs[i]).val('');
+  }
+  $('.notices').children().remove();
+  $('.notices').append('<div class="notice alert alert-success">Successfully added a new product</div>');
+<% end %>

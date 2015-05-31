@@ -1,7 +1,33 @@
-<% if @items.all.count > 0 %>
-  <% @items.each do |item| %>
-    <p><%= item.product_id %> : <%= item.name %></p>
+<header id="add-item-form">
+  <button id="add-form-btn" class="btn btn-primary">
+    Add a product
+  </button>
+  <%= form_for @item, remote: true do |f| %>
+    <p> 
+    <%= f.label :product_id, 'Product Id' %>
+    <%= f.text_field :product_id %>
+    </p>
+    <p> 
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </p>
+    <p>
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+    </p>
+    <p>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    </p>
+    <p> 
+    <%= f.submit class: "btn btn-success" %> 
+    </p>
   <% end %>
+</header>
+<% if @items.all.count > 0 %>
+  <ul id='items'>
+    <%= render @items %>
+  </ul>
 <% else %>
   <h2>No products exist yet!</h2>
 <% end %>

@@ -10,3 +10,10 @@
 <p>
   Price: <%= @item.price %>
 </p>
+<p>
+  <%= link_to 'back to all products', items_path %> 
+  <%= link_to 'edit', edit_item_path(@item) %>
+  <%= link_to 'Delete', item_path(@item),
+                          method: :delete,
+                          data: {confirm: 'are you sure?'} %>
+</p>
